@@ -1,0 +1,26 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "Chess in terminal",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Hello World\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FloatingComet62/Chess.git"
+  },
+  "keywords": [
+    "Chess",
+    "Terminal"
+  ],
+  "author": "FloatingComet62",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FloatingComet62/Chess/issues"
+  },
+  "homepage": "https://github.com/FloatingComet62/Chess#readme",
+  "dependencies": {
+    "inquirer": "^8.2.1"
+  }
+}
