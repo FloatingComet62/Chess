@@ -141,6 +141,25 @@ function Bishop(turnRow, turnCol, board){
     
     return moves;
 }
+function King(turnRow, turnCol){
+    output = [
+        `${turnRow+1}${turnCol}`, `${turnRow+1}${turnCol+1}`, `${turnRow+1}${turnCol-1}`,
+        `${turnRow-1}${turnCol}`, `${turnRow-1}${turnCol+1}`, `${turnRow-1}${turnCol-1}`,
+        `${turnRow}${turnCol+1}`, `${turnRow}${turnCol-1}`
+    ];
+    itemsToRemove = [];
+    output.forEach((value, index)=>{
+        if(parseInt(value) < 0){
+            itemsToRemove.push(index);
+        }
+    });
+    itemsToRemove.sort().reverse().forEach((value)=>{
+        output.splice(value, 1);
+    });
+
+    return output;
+}
+
 
 function getPieceMoves(pieceType, turnRow, turnCol, board, player){
     if(pieceType=="Pawn"){
@@ -154,6 +173,9 @@ function getPieceMoves(pieceType, turnRow, turnCol, board, player){
     }
     if(pieceType=="Bishop"){
         return Bishop(turnRow, turnCol, board);
+    }
+    if(pieceType=="King"){
+        return King(turnRow, turnCol);
     }
 }
 
