@@ -81,6 +81,68 @@ function getPieceMoves(pieceType, turnRow, turnCol, board, player){
 
         return uniqueSpots;
     }
+    if(pieceType=="Bishop"){
+        moves = [];
+        for(var i=0;i<8;i++){
+            if(turnCol-i<0){
+                break;
+            }
+            if(turnRow-i<0){
+                break;
+            }
+            if(board[turnRow-i][turnCol-i]!="" && i!=0){
+                moves.push(`${turnRow-i}${turnCol-i}`)
+                break;
+            }
+            moves.push(`${turnRow-i}${turnCol-i}`)
+        }
+        for(var i=0;i<8;i++){
+            if(turnCol-i<0){
+                break;
+            }
+            if(turnRow-i<0){
+                break;
+            }
+            if(board[turnRow+i][turnCol-i]!="" && i!=0){
+                moves.push(`${turnRow+i}${turnCol-i}`)
+                break;
+            }
+            moves.push(`${turnRow+i}${turnCol-i}`)
+        }
+        for(var i=0;i<8;i++){
+            if(turnCol-i<0){
+                break;
+            }
+            if(turnRow-i<0){
+                break;
+            }
+            if(board[turnRow-i][turnCol+i]!="" && i!=0){
+                moves.push(`${turnRow-i}${turnCol+i}`)
+                break;
+            }
+            moves.push(`${turnRow-i}${turnCol+i}`)
+        }
+        for(var i=0;i<8;i++){
+            if(turnCol-i<0){
+                break;
+            }
+            if(turnRow-i<0){
+                break;
+            }
+            if(board[turnRow+i][turnCol+i]!="" && i!=0){
+                moves.push(`${turnRow+i}${turnCol+i}`)
+                break;
+            }
+            moves.push(`${turnRow+i}${turnCol+i}`)
+        }
+        moves.forEach((value, index) => {
+            if(value==`${turnRow}${turnCol}`){
+                moves.splice(index, 1);
+            }
+        })
+        
+        return moves;
+    }
 }
 
 module.exports = {
