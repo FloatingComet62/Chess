@@ -3,10 +3,10 @@ const pieceHandler = require('./pieceHandler.js');
 
 async function run(){
     board = [
-        ["W_Rook", "W_Knight", "", "W_Queen", "W_King", "W_Bishop", "W_Knight", "W_Rook"],
+        ["W_Rook", "W_Knight", "W_Bishop", "W_Queen", "W_King", "W_Bishop", "W_Knight", "W_Rook"],
         ["", "W_Pawn", "W_Pawn", "W_Pawn", "W_Pawn", "W_Pawn", "W_Pawn", "W_Pawn"],
         ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "W_Bishop", "", "", ""],
+        ["", "", "", "", "", "", "", ""],
         ["W_Pawn", "", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", ""],
         ["B_Pawn", "B_Pawn", "B_Pawn", "B_Pawn", "B_Pawn", "B_Pawn", "B_Pawn", "B_Pawn"],
