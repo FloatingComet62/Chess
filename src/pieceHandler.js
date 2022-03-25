@@ -177,6 +177,13 @@ function getPieceMoves(pieceType, turnRow, turnCol, board, player){
     if(pieceType=="King"){
         return King(turnRow, turnCol);
     }
+    if(pieceType=="Queen"){
+        knightMoves = Knight(turnRow, turnCol);
+        rookMoves = Rook(turnRow, turnCol, board);
+        bishopMoves = Bishop(turnRow, turnCol, board);
+        kingMoves = King(turnRow, turnCol);
+        return [...knightMoves, ...rookMoves, ...bishopMoves, ...kingMoves];
+    }
 }
 
 module.exports = {
