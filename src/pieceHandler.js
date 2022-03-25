@@ -6,6 +6,19 @@ function isFirstMovePawn(player, turnRow) {
         return true
     }
 }
+function filterFriends(board, moves, player){
+    const friends = [];
+    const clone = moves;
+    clone.forEach((value, index)=>{
+        if(board[value[0]][value[1]][0]==player){
+            friends.push(index);
+        }
+    });
+    friends.sort().reverse().forEach((value)=>{
+        clone.splice(value, 1);
+    });
+    return clone;
+}
 function Pawn(player, turnRow, turnCol){
     if(isFirstMovePawn(player, turnRow)){
         if(player=="B"){
@@ -163,26 +176,38 @@ function King(turnRow, turnCol){
 
 function getPieceMoves(pieceType, turnRow, turnCol, board, player){
     if(pieceType=="Pawn"){
-        return Pawn(player, turnRow, turnCol);
+        moves = Pawn(player, turnRow, turnCol);
+        moves = filterFriends(board, moves, player);
+        return moves;
     }
     if(pieceType=="Rook"){
-        return Rook(turnRow, turnCol, board);
+        moves = Rook(turnRow, turnCol, board);
+        moves = filterFriends(board, moves, player);
+        return moves;
     }
     if(pieceType=="Knight"){
-        return Knight(turnRow, turnCol);
+        moves = Knight(turnRow, turnCol);
+        moves = filterFriends(board, moves, player);
+        return moves;
     }
     if(pieceType=="Bishop"){
-        return Bishop(turnRow, turnCol, board);
+        moves = Bishop(turnRow, turnCol, board);
+        moves = filterFriends(board, moves, player);
+        return moves;
     }
     if(pieceType=="King"){
-        return King(turnRow, turnCol);
+        moves = King(turnRow, turnCol);
+        moves = filterFriends(board, moves, player);
+        return moves;
     }
     if(pieceType=="Queen"){
         knightMoves = Knight(turnRow, turnCol);
         rookMoves = Rook(turnRow, turnCol, board);
         bishopMoves = Bishop(turnRow, turnCol, board);
         kingMoves = King(turnRow, turnCol);
-        return [...knightMoves, ...rookMoves, ...bishopMoves, ...kingMoves];
+        moves = [...knightMoves, ...rookMoves, ...bishopMoves, ...kingMoves];
+        moves = filterFriends(board, moves, player);
+        return moves;
     }
 }
 
