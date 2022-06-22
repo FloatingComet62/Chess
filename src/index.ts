@@ -36,10 +36,10 @@ function format(board: string[][]) {
 
 async function run() {
     let board = [
-        ["02", "03", "04", "06", "05", "04", "03", "02"],
+        ["", "", "", "06", "05", "04", "03", "02"],
         ["01", "01", "01", "01", "01", "01", "01", "01"],
-        ["", "11", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", ""],
+        ["", "", "02", "", "", "", "", ""],
         ["", "", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", ""],
         ["11", "11", "11", "11", "11", "11", "11", "11"],
@@ -60,7 +60,7 @@ async function run() {
         if (!value) { console.log("Invalid syntax"); continue; }
 
         const [row, column] = value.split('').map(item => parseInt(item))
-        const moves = pieceHandler.getPieceMoves(board[row][column], row, column, board)
+        const moves = pieceHandler.getPieceMoves(row, column, board)
         const response = await cli.askWtihOptions('Choose the position to move the piece', [...moves, "Choose Another Piece"])
 
         if (response === "Choose Anoher Piece") continue
