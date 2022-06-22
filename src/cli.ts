@@ -1,8 +1,8 @@
-const inquirer = require('inquirer');
+import { prompt } from 'inquirer';
 
-module.exports = {
-    async NewCommandInput(message){
-        const command = await inquirer.prompt({
+export default {
+    async NewCommandInput(message: string){
+        const command = await prompt({
             name: 'command',
             type: 'input',
             message: `${message}\n> `
@@ -11,8 +11,8 @@ module.exports = {
         return command.command
     },
     
-    async askWtihOptions(message, args){
-        const Optionask = await inquirer.prompt({
+    async askWtihOptions(message: string, args: string[]){
+        const Optionask = await prompt({
             name: 'optionAsk',
             type: 'list',
             message: `${message}\n`,

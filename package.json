@@ -2,9 +2,12 @@
   "name": "chess",
   "version": "1.0.0",
   "description": "Chess in terminal",
+  "private": true,
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Hello World\""
+    "watch": "tsc -w",
+    "build": "tsc",
+    "run": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,8 @@
   "homepage": "https://github.com/FloatingComet62/Chess#readme",
   "dependencies": {
     "inquirer": "^8.2.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.1"
   }
 }
