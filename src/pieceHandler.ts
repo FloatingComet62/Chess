@@ -94,6 +94,7 @@ function getRookMoves(row: number, column: number, board: string[][]): string[] 
 
         else return ""
     })
+    
     return output
 }
 
