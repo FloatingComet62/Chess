@@ -145,4 +145,6 @@ function getPieceMoves(row: number, column: number, board: string[][]): string[]
     return output
 }
 
-export default { getPieceMoves }
+export default {
+    getPieceMoves
+}
