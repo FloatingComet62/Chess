@@ -1,45 +1,14 @@
 import cli from './cli'
 import pieceHandler from './pieceHandler.js';
+import { format } from './utils';
 
-function format(board: string[][]) {
-    let output: string[][] = [
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""],
-        ["", "", "", "", "", "", "", ""]
-    ]
-    for (let i = 0; i < board.length; i++) {
-        const row = board[i]
-        for (let j = 0; j < row.length; j++) {
-            const value = row[j].split('')
-
-            if (value[0] === "0") output[i][j] += "W"
-            else if (value[0] === "1") output[i][j] += "B"
-
-            output[i][j] += "_"
-
-            if (value[1] === "1") output[i][j] += "Pawn"
-            else if (value[1] === "2") output[i][j] += "Rook"
-            else if (value[1] === "3") output[i][j] += "Knight"
-            else if (value[1] === "4") output[i][j] += "Bishop"
-            else if (value[1] === "5") output[i][j] += "Queen"
-            else if (value[1] === "6") output[i][j] += "King"
-        }
-    }
-
-    return output
-}
 
 async function run() {
     let board = [
         ["", "", "", "06", "05", "04", "03", "02"],
         ["01", "01", "01", "01", "01", "01", "01", "01"],
         ["", "", "", "", "", "", "", ""],
-        ["", "", "02", "", "", "", "", ""],
+        ["", "", "02", "", "", "", "03", ""],
         ["", "", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", ""],
         ["11", "11", "11", "11", "11", "11", "11", "11"],
